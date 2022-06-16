@@ -42,3 +42,18 @@ if test -f /etc/nginx/sites-enabled/lamprojects.me; then
 else
     sudo cp ./lamprojects.me /etc/nginx/sites-enabled/lamprojects.me
 fi
+
+echo "Checking for letmeet config"
+if test -f /etc/nginx/sites-enabled/letmeet.xyz; then
+    original_home=$(md5sum /etc/nginx/sites-enabled/letmeet.xyz | cut -c -32)
+    current_home=$(md5sum ./letmeet.xyz | cut -c -32)
+    if [[ "$original_home" == "$current_home" ]]; then
+        echo "No changes to home config"
+    else
+        sudo rm -rf /etc/nginx/sites-enabled/letmeet.xyz
+        sudo cp ./letmeet.xyz /etc/nginx/sites-enabled/letmeet.xyz
+    fi
+else
+    sudo cp ./letmeet.xyz /etc/nginx/sites-enabled/letmeet.xyz
+    sudo ln -s /etc/nginx/sites-enabled/letmeet.xyz /etc/nginx/sites-enabled/letmeet.xyz
+fi

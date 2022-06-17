@@ -66,7 +66,7 @@ if test -f /etc/nginx/sites-enabled/api.letmeet.xyz; then
         echo "No changes to home config"
     else
         sudo rm -rf /etc/nginx/sites-enabled/api.letmeet.xyz
-        sudo cp ./api.letmeet.xyzz /etc/nginx/sites-enabled/api.letmeet.xyz
+        sudo cp ./api.letmeet.xyz /etc/nginx/sites-enabled/api.letmeet.xyz
     fi
 else
     sudo cp ./api.letmeet.xyz /etc/nginx/sites-enabled/api.letmeet.xyz

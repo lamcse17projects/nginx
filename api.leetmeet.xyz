@@ -3,7 +3,7 @@ server {
     listen                     443 ssl http2;
     listen                     [::]:80 http2;
     listen                     [::]:443 http2;
-    server_name                api.letmeet.xyz;
+    server_name                api.letmeet.xyz www.api.letmeet.xyz;
 
     ssl_certificate            /root/taissl/cert.pem;
     ssl_certificate_key        /root/taissl/key.pem;

@@ -55,7 +55,7 @@ if test -f /etc/nginx/sites-enabled/letmeet.xyz; then
     fi
 else
     sudo cp ./letmeet.xyz /etc/nginx/sites-enabled/letmeet.xyz
-    sudo ln -s /etc/nginx/sites-enabled/letmeet.xyz /etc/nginx/sites-enabled/letmeet.xyz
+    sudo ln -s /etc/nginx/sites-enabled/letmeet.xyz /etc/nginx/sites-available/letmeet.xyz
 fi
 
 echo "Checking for letmeet api config"
@@ -70,5 +70,5 @@ if test -f /etc/nginx/sites-enabled/api.letmeet.xyz; then
     fi
 else
     sudo cp ./api.letmeet.xyz /etc/nginx/sites-enabled/api.letmeet.xyz
-    sudo ln -s /etc/nginx/sites-enabled/api.letmeet.xyz /etc/nginx/sites-enabled/api.letmeet.xyz
+    sudo ln -s /etc/nginx/sites-enabled/api.letmeet.xyz /etc/nginx/sites-available/api.letmeet.xyz
 fi

@@ -57,3 +57,18 @@ else
     sudo cp ./letmeet.xyz /etc/nginx/sites-enabled/letmeet.xyz
     sudo ln -s /etc/nginx/sites-enabled/letmeet.xyz /etc/nginx/sites-enabled/letmeet.xyz
 fi
+
+echo "Checking for letmeet api config"
+if test -f /etc/nginx/sites-enabled/api.letmeet.xyz; then
+    original_home=$(md5sum /etc/nginx/sites-enabled/api.letmeet.xyz | cut -c -32)
+    current_home=$(md5sum ./api.letmeet.xyz | cut -c -32)
+    if [[ "$original_home" == "$current_home" ]]; then
+        echo "No changes to home config"
+    else
+        sudo rm -rf /etc/nginx/sites-enabled/api.letmeet.xyz
+        sudo cp ./api.letmeet.xyzz /etc/nginx/sites-enabled/api.letmeet.xyz
+    fi
+else
+    sudo cp ./api.letmeet.xyz /etc/nginx/sites-enabled/api.letmeet.xyz
+    sudo ln -s /etc/nginx/sites-enabled/api.letmeet.xyz /etc/nginx/sites-enabled/api.letmeet.xyz
+fi
